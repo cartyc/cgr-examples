@@ -1,5 +1,5 @@
 # Build Env
-FROM cgr.dev/chainguard/python:3.12-dev as build
+FROM cgr.dev/chainguard/python:latest-dev as build
 
 ENV PATH="/app/venv/bin:$PATH"
 WORKDIR /app
@@ -9,7 +9,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Runtime Stage
-FROM cgr.dev/chainguard/python:3.12
+FROM cgr.dev/chainguard/python:latest
 ENV PATH="/venv/bin:$PATH"
 ENV FLASK_APP=app.py
 WORKDIR /app

@@ -1,5 +1,5 @@
 ## Pull JDK Dev Image to Use as Builder Image
-FROM cgr.dev/chainguard/jdk:openjdk-21-dev as build
+FROM cgr.dev/chainguard/jdk:latest-dev as build
 
 WORKDIR /opt/app
 
@@ -9,7 +9,7 @@ COPY . .
 RUN ./mvnw clean install
 
 # Use JRE Image to run artifacts producded by JDK Build stage
-FROM cgr.dev/chainguard/jre:openjdk-21-dev
+FROM cgr.dev/chainguard/jre:latest-dev
 
 WORKDIR /opt/app
 

@@ -13,7 +13,7 @@ ARG configuration=production
 RUN npm run build
 
 ## Runtime Stage
-FROM chainguard/nginx
+FROM chainguard/nginx:latest
 ENV PORT 8888
 # Copy build artifacts from Build stage
 COPY --from=build /app/dist /usr/share/nginx/html
